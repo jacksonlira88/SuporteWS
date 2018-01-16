@@ -5,12 +5,14 @@
  */
 package api;
 
+import com.google.gson.Gson;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import modelo.Tecnico;
 import modelo.service.TecnicoFacadeREST;
 
@@ -26,7 +28,7 @@ public class TecnicoAPI {
     
     @POST
     @Path("novo/{nome}/{empresa}/{funcao}")
-    @Consumes("application/json")
+    @Produces("application/json")
     public String novo(@PathParam("nome") String nome, 
             @PathParam("empresa") String empresa, 
             @PathParam("funcao") String funcao){
@@ -38,10 +40,15 @@ public class TecnicoAPI {
             tecnico.setSenha(senha);
             //tecnico.setMatricula(matricula);
             tecnicoDAO.create(tecnico);
-    
-            return "Cadastrado, senha de acesso: "+senha;
+            
+            return new Gson().toJson(tecnico);
     }
     
+    @GET
+    @Path("teste")
+    public String teste(){
+        return "Web Service online!!";
+    }
     //implementar método de recuperação de senha
    
     
