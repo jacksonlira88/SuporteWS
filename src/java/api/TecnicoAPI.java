@@ -7,7 +7,6 @@ package api;
 
 import com.google.gson.Gson;
 import javax.ejb.EJB;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

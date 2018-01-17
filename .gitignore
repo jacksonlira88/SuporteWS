@@ -1,0 +1,7 @@
+
+*.class
+*.rapt
+*.class
+*.class
+*.class
+build/web/WEB-INF/classes/api/TecnicoAPI.class
